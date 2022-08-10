@@ -9,33 +9,71 @@ import UIKit
 
 class NFTListTableViewCell: BaseTableViewCell {
     
+    let circle = UIView()
+    let circleLabel = UILabel()
     let titleLabel = UILabel()
+    let detailButton = UIButton()
     
-    func update(title: String) {
+    func update(title: String, order: Int) {
         titleLabel.text = title
+        circleLabel.text = "\(order)"
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
         titleLabel.text = ""
+        circleLabel.text = ""
     }
     
     override func setupProperty() {
         super.setupProperty()
+        
+        circle.cornerRound(radius: 12)
+        circle.backgroundColor = .systemBlue
+        
+        circleLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        circleLabel.textColor = .white
+        circleLabel.textAlignment = .center
+        
+        titleLabel.font = .systemFont(ofSize: 17, weight: .semibold)
+        titleLabel.textColor = .black
+        
+        detailButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        detailButton.tintColor = .black
     }
     
     override func setupHierarchy() {
         super.setupHierarchy()
         
-        contentView.addSubview(titleLabel)
+        contentView.addSubviews([circle, titleLabel, detailButton])
+        
+        circle.addSubview(circleLabel)
     }
     
     override func setupLayout() {
         super.setupLayout()
         
-        titleLabel.snp.makeConstraints {
+        circle.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(24)
+        }
+        
+        circleLabel.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalTo(circle.snp.trailing).offset(20)
+            $0.centerY.equalToSuperview()
+            $0.top.bottom.equalToSuperview().inset(20)
+        }
+        
+        detailButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(42)
         }
     }
 }

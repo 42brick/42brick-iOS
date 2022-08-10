@@ -8,9 +8,10 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-    let homeListHeaderStackView = UIStackView()
-    let myNFTHeader = UILabel()
-    let homeListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let nftListHeaderStackView = UIStackView()
+    let myNFTHeader = NFTListHeader(title: "내 NFT")
+    let favoriteNFTHeader = NFTListHeader(title: "관심")
+    let nftListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     var myNFTs = ["안녕", "나는", "영모", "안녕", "하세요", "이건", "테스트", "ㅎㅇ", "123", "152125"]
     var favoriteNFTs = [1, 2, 3, 4, 5, 6]
@@ -25,33 +26,48 @@ class HomeViewController: BaseViewController {
     override func setupDelegate() {
         super.setupDelegate()
         
-        homeListCollectionView.delegate = self
-        homeListCollectionView.dataSource = self
+        nftListCollectionView.delegate = self
+        nftListCollectionView.dataSource = self
     }
     
     override func setupProperty() {
         super.setupProperty()
         
+        nftListHeaderStackView.axis = .horizontal
+        nftListHeaderStackView.distribution = .fillEqually
+        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         
-        homeListCollectionView.isPagingEnabled = true
-        homeListCollectionView.collectionViewLayout = flowLayout
-        homeListCollectionView.register(MyNFTCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: MyNFTCollectionViewCell.self))
-        homeListCollectionView.register(FavoriteNFTCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: FavoriteNFTCollectionViewCell.self))
+        nftListCollectionView.isPagingEnabled = true
+        nftListCollectionView.showsVerticalScrollIndicator = false
+        nftListCollectionView.showsHorizontalScrollIndicator = false
+        nftListCollectionView.collectionViewLayout = flowLayout
+        nftListCollectionView.register(MyNFTCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: MyNFTCollectionViewCell.self))
+        nftListCollectionView.register(FavoriteNFTCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: FavoriteNFTCollectionViewCell.self))
     }
     
     override func setupHierarchy() {
         super.setupHierarchy()
         
-        view.addSubview(homeListCollectionView)
+        view.addSubviews([nftListHeaderStackView, nftListCollectionView])
+        
+        nftListHeaderStackView.addArrangedSubview(myNFTHeader)
+        nftListHeaderStackView.addArrangedSubview(favoriteNFTHeader)
     }
     
     override func setupLayout() {
         super.setupLayout()
         
-        homeListCollectionView.snp.makeConstraints {
-            $0.top.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        nftListHeaderStackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.height.equalTo(50)
+        }
+        
+        nftListCollectionView.snp.makeConstraints {
+            $0.top.equalTo(nftListHeaderStackView.snp.bottom)
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }

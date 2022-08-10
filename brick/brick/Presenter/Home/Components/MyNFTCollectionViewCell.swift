@@ -57,7 +57,7 @@ extension MyNFTCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NFTListTableViewCell.self), for: indexPath) as? NFTListTableViewCell else { return UITableViewCell() }
         
-        cell.update(title: nfts[indexPath.row])
+        cell.update(title: nfts[indexPath.row], order: indexPath.row)
         return cell
     }
 }
