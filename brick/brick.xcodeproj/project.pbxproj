@@ -31,6 +31,7 @@
 		708E259F28A39A5000E9B9DE /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E259E28A39A5000E9B9DE /* BaseCollectionReusableView.swift */; };
 		708E25A128A39B0F00E9B9DE /* NFTListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E25A028A39B0F00E9B9DE /* NFTListHeader.swift */; };
 		708E25A428A39DC700E9B9DE /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E25A328A39DC700E9B9DE /* UIView+Ext.swift */; };
+		708E25A628A3AFDD00E9B9DE /* Tkksda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E25A528A3AFDD00E9B9DE /* Tkksda.swift */; };
 		70EEBE5013EC0ADCB82DDC57 /* Pods_BrickTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5821F9C170E1ECF87283DD3 /* Pods_BrickTests.framework */; };
 		E388E8595915BF42EC115FD9 /* Pods_Brick_BrickUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECACEB0A144005C81F87C20C /* Pods_Brick_BrickUITests.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		708E259E28A39A5000E9B9DE /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		708E25A028A39B0F00E9B9DE /* NFTListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTListHeader.swift; sourceTree = "<group>"; };
 		708E25A328A39DC700E9B9DE /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		708E25A528A3AFDD00E9B9DE /* Tkksda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tkksda.swift; sourceTree = "<group>"; };
 		70BA31083C0CCDCEFC8FB682 /* Pods-Brick-BrickUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brick-BrickUITests.debug.xcconfig"; path = "Target Support Files/Pods-Brick-BrickUITests/Pods-Brick-BrickUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2D760ECF47BB781D998B263 /* Pods-Brick-BrickUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brick-BrickUITests.release.xcconfig"; path = "Target Support Files/Pods-Brick-BrickUITests/Pods-Brick-BrickUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B85C54DF33BE132B9A0F3DFB /* Pods-BrickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrickTests.release.xcconfig"; path = "Target Support Files/Pods-BrickTests/Pods-BrickTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				708E258B28A3891500E9B9DE /* Factory */,
 				708E258828A3889A00E9B9DE /* Home */,
 				708E257F28A3870E00E9B9DE /* TabBar */,
+				708E25A528A3AFDD00E9B9DE /* Tkksda.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				708E258A28A388EF00E9B9DE /* HomeViewController.swift in Sources */,
 				708E259528A3917B00E9B9DE /* BaseTableViewCell.swift in Sources */,
 				708E258728A3884200E9B9DE /* BaseViewController.swift in Sources */,
+				708E25A628A3AFDD00E9B9DE /* Tkksda.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

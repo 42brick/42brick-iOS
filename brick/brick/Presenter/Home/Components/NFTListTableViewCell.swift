@@ -8,7 +8,9 @@
 import UIKit
 
 class NFTListTableViewCell: BaseTableViewCell {
-    
+    let id1 = "NFTListTableViewCell1"
+    let id2 = "NFTListTableViewCell2"
+
     let circle = UIView()
     let circleLabel = UILabel()
     let titleLabel = UILabel()

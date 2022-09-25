@@ -93,6 +93,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MyNFTCollectionViewCell.self), for: indexPath) as? MyNFTCollectionViewCell else { return UICollectionViewCell() }
             
+            cell.tableView.delegate = self
+            cell.tableView.dataSource = self
             cell.update(nfts: myNFTs)
             return cell
         case 1:
@@ -106,5 +108,23 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myNFTs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NFTListTableViewCell.self), for: indexPath) as? NFTListTableViewCell else { return UITableViewCell() }
+        
+        cell.update(title: myNFTs[indexPath.row], order: indexPath.row)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(tableView)
+        print(indexPath)
     }
 }

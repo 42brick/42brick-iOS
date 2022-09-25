@@ -8,7 +8,6 @@
 import UIKit
 
 class MyNFTCollectionViewCell: BaseCollectionViewCell {
-    
     let tableView = UITableView()
     
     var nfts: [String] = []
@@ -29,9 +28,6 @@ class MyNFTCollectionViewCell: BaseCollectionViewCell {
         contentView.backgroundColor = .cyan
         
         tableView.register(NFTListTableViewCell.self, forCellReuseIdentifier: String(describing: NFTListTableViewCell.self))
-        
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
     override func setupHierarchy() {
@@ -46,18 +42,5 @@ class MyNFTCollectionViewCell: BaseCollectionViewCell {
         tableView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview()
         }
-    }
-}
-
-extension MyNFTCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nfts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NFTListTableViewCell.self), for: indexPath) as? NFTListTableViewCell else { return UITableViewCell() }
-        
-        cell.update(title: nfts[indexPath.row], order: indexPath.row)
-        return cell
     }
 }
